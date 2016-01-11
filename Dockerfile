@@ -15,18 +15,10 @@ RUN apt-get update && apt-get install -y \
   debconf \
   git
 
+# Configuring Locales
+COPY locale.gen /etc/locale.gen
+COPY locale.conf /etc/locale.conf
+RUN locale-gen
+
 # Cleaning the apt/list repo
 RUN rm -rf /var/lib/apt/lists/*
-
-# Set the privileges to the html folder
-# RUN chmod 777 /var/www/html
-
-# Copy the project to the server
-# ADD src/ /var/www/html/
-# ADD config/php.ini /usr/local/etc/php/
-
-# Expose the 80 port and 443 port
-# EXPOSE 22 80 443
-
-# Running the server
-#CMD ["/usr/bin/supervisord"]
