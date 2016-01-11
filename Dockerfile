@@ -13,7 +13,7 @@ RUN apt-get update && apt-get install -y \
   rpm \
   debconf \
   debconf \
-  git \
+  git
 
 # Cleaning the apt/list repo
 RUN rm -rf /var/lib/apt/lists/*
