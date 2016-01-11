@@ -18,7 +18,7 @@ RUN apt-get update && apt-get install -y \
 # Configuring Locales
 COPY locale.gen /etc/locale.gen
 COPY locale.conf /etc/locale.conf
-RUN locale-gen
+#RUN locale-gen -> This command has problems.
 
 # Cleaning the apt/list repo
 RUN rm -rf /var/lib/apt/lists/*
